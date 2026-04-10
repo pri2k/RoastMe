@@ -9,6 +9,37 @@ load_dotenv()
 # ---------------- CONFIG ----------------
 st.set_page_config(page_title="Roast Me 😂", page_icon="🔥")
 
+
+st.markdown("""
+<style>
+body {
+    overflow: hidden;
+}
+
+.particle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 10s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+</style>
+
+<div class="particle" style="left:10%; animation-duration: 12s;"></div>
+<div class="particle" style="left:30%; animation-duration: 15s;"></div>
+<div class="particle" style="left:50%; animation-duration: 10s;"></div>
+<div class="particle" style="left:70%; animation-duration: 18s;"></div>
+<div class="particle" style="left:90%; animation-duration: 14s;"></div>
+""", unsafe_allow_html=True)
+
+
 # ---------------- API KEY ----------------
 api_key = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=api_key)
